@@ -8,17 +8,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>r-common</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>r-common</name>
     <url>http://maven.apache.org</url>
-    <modules>
-        <module>data</module>
-        <module>util</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 </project>

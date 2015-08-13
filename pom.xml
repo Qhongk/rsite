@@ -23,9 +23,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:BroadleafCommerce/BroadleafCommerce.git</connection>
-        <developerConnection>scm:git:git@github.com:BroadleafCommerce/BroadleafCommerce.git</developerConnection>
-        <url>https://github.com/BroadleafCommerce/BroadleafCommerce</url>
+        <connection>scm:git:git@github.com:Qhongk/rsite.git</connection>
+        <developerConnection>scm:git:git@github.com:Qhongk/rsite.git</developerConnection>
+        <url>https://github.com/Qhongk/rsite</url>
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,12 +51,7 @@
             <!-- Rsite Libraries -->
             <dependency>
                 <groupId>com.kzaza</groupId>
-                <artifactId>r-common-data</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kzaza</groupId>
-                <artifactId>r-common-util</artifactId>
+                <artifactId>r-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
