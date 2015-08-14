@@ -10,3 +10,25 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+*target*
+.svn
+.classes
+.project
+.classpath
+.settings/
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+WEB-INF/classes
+WEB-INF/lib
+git.properties
+!.gitignore
+.idea
+*.iml
+rebel.xml
