@@ -14,10 +14,13 @@ hs_err_pid*
 *target*
 .svn
 .classes
+
+# eclipse config file
 .project
 .classpath
-.settings/
+.settings
 .metadata
+
 bin/**
 tmp/**
 tmp/**/*
@@ -29,6 +32,8 @@ WEB-INF/classes
 WEB-INF/lib
 git.properties
 !.gitignore
+
+# idea config file
 .idea
 *.iml
 rebel.xml
