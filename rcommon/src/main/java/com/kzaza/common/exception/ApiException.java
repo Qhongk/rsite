@@ -3,7 +3,7 @@ package com.kzaza.common.exception;
 /**
  * Created by rick01.kong on 2015/8/17.
  */
-public class ApiException extends RuntimeException {
+public class ApiException extends Exception {
 
     private int code;
 
