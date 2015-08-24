@@ -12,7 +12,7 @@ public enum ApiExceptionEnum {
 
     private String message;
 
-    private ApiExceptionEnum(int code, String message) {
+    ApiExceptionEnum(int code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -25,7 +25,7 @@ public enum ApiExceptionEnum {
         return message;
     }
 
-    public ApiException error(Object...args) {
+    public ApiException error(Object... args) {
         return new ApiException(code, String.format(message, args));
     }
 }
