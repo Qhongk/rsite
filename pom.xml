@@ -41,6 +41,8 @@
         <jersey.version>1.17.1</jersey.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
         <httpclient.version>4.3.2</httpclient.version>
+        <servlet.version>2.4</servlet.version>
+        <jsp.version>2.0</jsp.version>
     </properties>
     <modules>
         <module>rsite-api</module>
@@ -311,6 +313,19 @@
                 <version>5.9</version>
                 <classifier>jdk15</classifier>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp.version}</version>
+                <scope>provided</scope>
             </dependency>
 
         </dependencies>
