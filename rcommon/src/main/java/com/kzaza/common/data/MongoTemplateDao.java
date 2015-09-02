@@ -23,7 +23,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
- * Created by rick01.kong on 2015/7/16.
+ * Created by rick.kong
  */
 public class MongoTemplateDao<T, ID extends Serializable> implements GenericMongoDao<T, ID> {
 

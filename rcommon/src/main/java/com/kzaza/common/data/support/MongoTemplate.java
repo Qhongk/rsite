@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by rick01.kong on 2015/7/20.
+ * Created by rick.kong.
  */
 public class MongoTemplate {
 

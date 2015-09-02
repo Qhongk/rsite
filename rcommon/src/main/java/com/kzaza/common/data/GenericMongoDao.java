@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.io.Serializable;
 
 /**
- * Created by rick01.kong on 2015/8/3.
+ * Created by rick.kong.
  */
 public interface GenericMongoDao<T, ID extends Serializable> extends PagingAndSortingRepository<T, ID> {
 
