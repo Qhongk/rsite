@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * Created by rick01.kong on 2015/8/21.
+ * Created by rick.kong.
  */
 public class CacheQueue<T> {
 

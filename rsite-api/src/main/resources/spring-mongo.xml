@@ -20,7 +20,7 @@
                        write-timeout="0"
                        write-fsync="true"/>
     </mongo:mongo>-->
-    <mongo:mongo-client id="mongo" host="localhost" port="27017" credentials="vip_tracker:password@vip_tracker"></mongo:mongo-client>
+    <mongo:mongo-client id="mongo" host="localhost" port="27017" credentials="root:password@dbName"></mongo:mongo-client>
 
     <mongo:db-factory id="mongoDbFactory" mongo-ref="mongo"/>
 

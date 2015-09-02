@@ -78,10 +78,10 @@ public class MongoTest {
             }
         };
         List<MongoCredential> mc = new ArrayList<MongoCredential>();
-        mc.add(MongoCredential.createCredential("vip_tracker", "vip_tracker", "password".toCharArray()));
+        mc.add(MongoCredential.createCredential("dbName", "dbName", "password".toCharArray()));
         MongoClient mongoClient = new MongoClient(sa, mc);
 
-        MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(mongoClient, "vip_tracker");
+        MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(mongoClient, "dbName");
 
         MongoOperations mongoOperations = new MongoTemplate(mongoDbFactory);
 
