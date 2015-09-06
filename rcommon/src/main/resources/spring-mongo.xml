@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/data/mongo
+       http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+<!--    <mongo:mongo id="mongo" host="${mongo.host}" port="${mongo.port}"></mongo:mongo>
+    <mongo:db-factory dbname="${mongo.databaseName}" mongo-ref="mongo"
+                      username="${mongo.username}" password="${mongo.password}"/>-->
+
+    <bean id="mongoTemplate" class="com.kzaza.common.data.support.MongoTemplate">
+        <constructor-arg name="host" value="${mongo.host}"/>
+        <constructor-arg name="port" value="${mongo.port}"/>
+        <constructor-arg name="username" value="${mongo.username}"/>
+        <constructor-arg name="password" value="${mongo.password}"/>
+        <constructor-arg name="databaseName" value="${mongo.databaseName}"/>
+        <constructor-arg name="mongoTypeMapper" ref="defaultMongoTypeMapper"/>
+    </bean>
+
+	<!-- 默认Mongodb类型映射 -->
+	<bean id="defaultMongoTypeMapper" class="org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper">
+		<!-- 设置为空，可以把 spring data mongodb 多余保存的"_class"字段去掉 -->
+		<constructor-arg name="typeKey">
+			<null />
+		</constructor-arg>
+	</bean>
+    <!--<mongo:mongo host="localhost" port="27017">
+        <mongo:options connections-per-host="8"
+                       threads-allowed-to-block-for-connection-multiplier="4"
+                       connect-timeout="1000"
+                       max-wait-time="1500"
+                       auto-connect-retry="true"
+                       socket-keep-alive="true" socket-timeout="1500"
+                       slave-ok="true"
+                       write-number="1"
+                       write-timeout="0"
+                       write-fsync="true"/>
+    </mongo:mongo>-->
+    <!--<mongo:mongo-client id="mongo" host="localhost" port="27017" credentials="root:password@dbName"></mongo:mongo-client>
+
+    <mongo:db-factory id="mongoDbFactory" mongo-ref="mongo"/>
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        <property name="writeResultChecking" value="EXCEPTION"/>
+    </bean>-->
+</beans>
