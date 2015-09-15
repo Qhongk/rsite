@@ -6,7 +6,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- * Created by rick01.kong on 2015/8/24.
+ * Created by kza on 2015/8/24.
  */
 public class SignatureUtilsTest extends TestCase {
 

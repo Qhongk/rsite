@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 /**
- * Created by rick01.kong on 2015/9/7.
+ * Created by kza on 2015/9/7.
  */
 public class RabbitMQTest {
 

@@ -21,7 +21,7 @@ import java.util.Map;
  * @Title: HttpClientUtils.java
  * @Description: httpclient tool
  *
- * @author rick01.kong
+ * @author kza
  * @date 2015年3月17日 下午3:43:30
  * @version V1.0
  */

@@ -1,7 +1,7 @@
 package com.kzaza.common.exception;
 
 /**
- * Created by rick01.kong on 2015/8/17.
+ * Created by kza on 2015/8/17.
  */
 public class ApiException extends Exception {
 
