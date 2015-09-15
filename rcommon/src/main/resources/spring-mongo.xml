@@ -12,7 +12,7 @@
     <mongo:db-factory dbname="${mongo.databaseName}" mongo-ref="mongo"
                       username="${mongo.username}" password="${mongo.password}"/>-->
 
-    <bean id="mongoTemplate" class="com.kzaza.common.data.support.MongoTemplate">
+    <bean id="mongoTemplate" class="com.kza.common.data.support.MongoTemplate">
         <constructor-arg name="host" value="${mongo.host}"/>
         <constructor-arg name="port" value="${mongo.port}"/>
         <constructor-arg name="username" value="${mongo.username}"/>
