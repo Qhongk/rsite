@@ -13,7 +13,7 @@
     </appender>
 
     <appender name="api" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="./rsite-api.log" />
+        <param name="File" value="${catalina.base}/logs/rsite-api.log" />
         <param name="MaxFileSize" value="2MB" />
         <param name="MaxBackupIndex" value="3" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -81,15 +81,15 @@
         <level value="WARN" />
     </logger>
 
-    <logger name="com.ripple" additivity="true">
+    <logger name="com.kza" additivity="true">
         <level value="INFO" />
         <appender-ref ref="api" />
     </logger>
 
-    <logger name="com.github.inspektr.audit.support.Slf4jLoggingAuditTrailManager">
+    <!--<logger name="com.github.inspektr.audit.support.Slf4jLoggingAuditTrailManager">
         <level value="INFO" />
         <appender-ref ref="api" />
-    </logger>
+    </logger>-->
 
     <!--
       The root logger sends all log statements EXCEPT those sent to the perf4j
