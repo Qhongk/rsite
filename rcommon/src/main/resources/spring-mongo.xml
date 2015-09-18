@@ -15,7 +15,7 @@
         <constructor-arg name="mongoTypeMapper" ref="defaultMongoTypeMapper"/>
     </bean>-->
 
-    <mongo:mongo host="${mongo.host}" port="${mongo.port}">
+    <!--<mongo:mongo host="${mongo.host}" port="${mongo.port}">
         <mongo:options connections-per-host="8"
                        threads-allowed-to-block-for-connection-multiplier="4"
                        connect-timeout="1000"
@@ -26,14 +26,17 @@
                        write-number="1"
                        write-timeout="0"
                        write-fsync="true"/>
-    </mongo:mongo>
-    <!--<mongo:mongo-client id="mongo" host="${mongo.host}" port="${mongo.port}"
+    </mongo:mongo>-->
+    <mongo:mongo-client id="mongo" host="${mongo.host}" port="${mongo.port}"
                         credentials="${mongo.username}:${mongo.password}@${mongo.databaseName}">
+        <mongo:client-options connections-per-host="8"
+                       threads-allowed-to-block-for-connection-multiplier="4"
+                       connect-timeout="1000"
+                       max-wait-time="1500"
+                       socket-keep-alive="true" socket-timeout="1500"/>
+    </mongo:mongo-client>
 
-    </mongo:mongo-client>-->
-
-    <mongo:db-factory id="mongoDbFactory" mongo-ref="mongo"
-                      dbname="${mongo.databaseName}" username="${mongo.username}" password="${mongo.password}"/>
+    <mongo:db-factory mongo-ref="mongo" dbname="${mongo.databaseName}" username="${mongo.username}" password="${mongo.password}"/>
 
     <mongo:mapping-converter type-mapper-ref="defaultMongoTypeMapper"/>
 
