@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:*spring-mongo.xml")
+@ContextConfiguration(locations = "classpath:spring-config.xml")
 public class MongoTest {
 
     @Document

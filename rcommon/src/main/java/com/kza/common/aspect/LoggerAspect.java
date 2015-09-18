@@ -15,14 +15,14 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggerAspect {
 
-    Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
 
     @Around("execution(* *(..)) && @annotation(com.kza.common.annotations.Logged)")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         long start = System.currentTimeMillis();
         Object result = point.proceed();
         logger.info(
-                "#%s(%s): %s in %[msec]s",
+                "#{}({}): {} in {}s",
                 MethodSignature.class.cast(point.getSignature()).getMethod().getName(),
                 point.getArgs(),
                 result,

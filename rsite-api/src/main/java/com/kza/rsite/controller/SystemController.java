@@ -1,6 +1,5 @@
 package com.kza.rsite.controller;
 
-import com.kza.common.annotations.Logged;
 import com.kza.rsite.service.LoggerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
