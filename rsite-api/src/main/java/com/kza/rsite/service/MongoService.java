@@ -3,12 +3,14 @@ package com.kza.rsite.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by kza on 2015/9/18.
  */
+@Component
 public class MongoService {
 
     @Autowired

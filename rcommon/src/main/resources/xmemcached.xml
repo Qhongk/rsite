@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--<bean id="memcachedService" class="com.vipshop.service.impl.MemcachedServiceImpl" destroy-method="shutdown">
+        <property name="memcachedClient" ref="memcachedClient"></property>
+        &lt;!&ndash; <property name="defaultCacheTime" value="${cache.default.cachetime}"></property>
+        <property name="highUpdatePeriodCacheTime" value="${cache.highupdate.cachetime}"></property>
+        <property name="highUpdatePeriodStartHour" value="${cache.highupdate.period.starthour}"></property>
+        <property name="highUpdatePeriodEndHour" value="${cache.highupdate.period.endhour}"></property> &ndash;&gt;
+    </bean>-->
+
+    <!-- <bean name="memcachedClient"
+        class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean"
+        destroy-method="shutdown">
+        <property name="servers">
+            <value>${cache.url}</value>
+        </property>
+        nio connection pool size
+        <property name="connectionPoolSize" value="25"></property>
+        <property name="commandFactory" ref="BinaryCommandFactory"></property>
+        <property name="sessionLocator" ref="KetamaMemcachedSessionLocator"></property>
+    </bean> -->
+
+    <bean name="memcachedClient" factory-bean="memcachedClientBuilder"
+          factory-method="build" destroy-method="shutdown">
+        <property name="mergeFactor" value="50"></property>
+        <property name="optimizeMergeBuffer" value="false"></property>
+        <property name="enableHeartBeat" value="false"></property>
+    </bean>
+
+    <bean id="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
+        <!-- XMemcachedClientBuilder have two arguments.First is server list,and second is weights array. -->
+        <constructor-arg value="${cache.url}"/>
+        <property name="connectionPoolSize" value="5"></property>
+        <property name="sessionLocator" ref="KetamaMemcachedSessionLocator"></property>
+    </bean>
+
+    <bean id="KetamaMemcachedSessionLocator" class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"/>
+</beans>
