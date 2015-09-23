@@ -4,10 +4,12 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,13 +17,16 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @Title: HttpClientUtils.java
+ * @Package com.vip.tracker.util
  * @Description: httpclient tool
  *
- * @author kza
+ * @author rick01.kong
  * @date 2015年3月17日 下午3:43:30
  * @version V1.0
  */
@@ -80,6 +85,16 @@ public class HttpClientUtils {
 			URL url = new URL(urlStr);
 			URI uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), null);
 			HttpPost httppost = new HttpPost(uri);
+
+            List<BasicNameValuePair> e = new ArrayList<>();
+            if (keyValueMap.size() > 0) {
+
+                for (Map.Entry<String, String> key : keyValueMap.entrySet()) {
+                    e.add(new BasicNameValuePair(key.getKey(), key.getValue()));
+                }
+            }
+
+            httppost.setEntity(new UrlEncodedFormEntity(e, "UTF-8"));
 
 			logger.debug("Executing request {}" + httppost.getRequestLine());
 

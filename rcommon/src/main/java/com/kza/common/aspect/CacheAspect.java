@@ -18,6 +18,7 @@ public class CacheAspect {
 
     @Around("execution(* *(..)) && @annotation(com.kza.common.annotations.Cached)")
     public Object around(ProceedingJoinPoint point) throws Throwable {
+        
         return null;
     }
 }

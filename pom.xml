@@ -50,6 +50,7 @@
     <modules>
         <module>rsite-api</module>
         <module>rcommon</module>
+        <module>kza-async-service</module>
     </modules>
 
     <build>
