@@ -33,7 +33,7 @@
                        threads-allowed-to-block-for-connection-multiplier="4"
                        connect-timeout="1000"
                        max-wait-time="1500"
-                       socket-keep-alive="true" socket-timeout="1500"/>
+                       socket-keep-alive="true" socket-timeout="1500" read-preference="SECONDARY_PREFERRED"/>
     </mongo:mongo-client>
 
     <mongo:db-factory mongo-ref="mongo" dbname="${mongo.databaseName}" username="${mongo.username}" password="${mongo.password}"/>

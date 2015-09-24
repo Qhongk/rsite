@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by kza on 2015/9/22.
  */
-public class ThreadTest {
+public class ScheduledExecutorServiceTest {
 
     private static class WorkerThread implements Runnable {
 
