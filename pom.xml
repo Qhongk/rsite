@@ -51,6 +51,8 @@
         <module>rsite-api</module>
         <module>rcommon</module>
         <module>kza-async-service</module>
+        <module>kza-netty</module>
+        <module>rsite-admin</module>
     </modules>
 
     <build>
