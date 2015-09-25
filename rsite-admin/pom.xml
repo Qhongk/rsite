@@ -6,9 +6,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>rsite-api</artifactId>
+    <artifactId>rsite-admin</artifactId>
     <packaging>war</packaging>
-    <name>rsite-api</name>
+    <name>rsite-admin</name>
     <url>www.ripple.com</url>
 
     <dependencies>
@@ -51,7 +51,7 @@
             <groupId>com.kzaza</groupId>
             <artifactId>r-common</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
@@ -108,7 +108,7 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <artifactId>servlet-api</artifactId>
         </dependency>
 
         <dependency>
@@ -117,6 +117,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>rsite-api</finalName>
+        <finalName>rsite-admin</finalName>
     </build>
 </project>

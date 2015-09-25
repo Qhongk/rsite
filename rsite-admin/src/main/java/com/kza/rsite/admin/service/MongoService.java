@@ -1,4 +1,4 @@
-package com.kza.rsite.service;
+package com.kza.rsite.admin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

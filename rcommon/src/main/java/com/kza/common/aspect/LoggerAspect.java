@@ -22,7 +22,7 @@ public class LoggerAspect {
         long start = System.currentTimeMillis();
         Object result = point.proceed();
         logger.info(
-                "#{}({}): {} in {}s",
+                "#{}({}): {} in {}ms",
                 MethodSignature.class.cast(point.getSignature()).getMethod().getName(),
                 point.getArgs(),
                 result,

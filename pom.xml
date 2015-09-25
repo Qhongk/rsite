@@ -50,6 +50,9 @@
     <modules>
         <module>rsite-api</module>
         <module>rcommon</module>
+        <module>kza-async-service</module>
+        <module>kza-netty</module>
+        <module>rsite-admin</module>
     </modules>
 
     <build>
@@ -395,6 +398,12 @@
                 <version>${amqp.client.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.googlecode.xmemcached</groupId>
+                <artifactId>xmemcached</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
             <!-- logger -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -443,6 +452,12 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

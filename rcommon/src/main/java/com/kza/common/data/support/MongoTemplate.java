@@ -32,13 +32,20 @@ public class MongoTemplate {
 
     private MongoOperations mongoOperations;
 
+    private MongoClientOptions mongoClientOptions = MongoClientOptions.builder()
+            .socketKeepAlive(true)
+            .maxWaitTime(1500)
+            .socketTimeout(1500)
+            .readPreference(ReadPreference.secondaryPreferred())
+            .build();
+
     public MongoTemplate(final String host, final int port, final String username, final String password, final String databaseName) throws UnknownHostException {
 
         List<ServerAddress> sa = new ArrayList<>();
         sa.add(new ServerAddress(host, port));
         List<MongoCredential> mc = new ArrayList<>();
         mc.add(com.mongodb.MongoCredential.createCredential(username, databaseName, password.toCharArray()));
-        MongoClient mongoClient = new MongoClient(sa, mc);
+        MongoClient mongoClient = new MongoClient(sa, mc, mongoClientOptions);
         mongoOperations = new org.springframework.data.mongodb.core.MongoTemplate(new SimpleMongoDbFactory(mongoClient, databaseName));
     }
 
@@ -58,13 +65,13 @@ public class MongoTemplate {
         sa.add(new ServerAddress(host, port));
         List<MongoCredential> mc = new ArrayList<>();
         mc.add(com.mongodb.MongoCredential.createCredential(username, databaseName, password.toCharArray()));
-        MongoClient mongoClient = new MongoClient(sa, mc);
+        MongoClient mongoClient = new MongoClient(sa, mc, mongoClientOptions);
         SimpleMongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(mongoClient, databaseName);
-        
-    	MappingMongoConverter converter =
-    		new MappingMongoConverter(mongoDbFactory, new MongoMappingContext());
-    	converter.setTypeMapper(mongoTypeMapper);
-        
+
+        MappingMongoConverter converter =
+                new MappingMongoConverter(mongoDbFactory, new MongoMappingContext());
+        converter.setTypeMapper(mongoTypeMapper);
+
         mongoOperations = new org.springframework.data.mongodb.core.MongoTemplate(new SimpleMongoDbFactory(mongoClient, databaseName), converter);
     }
 
