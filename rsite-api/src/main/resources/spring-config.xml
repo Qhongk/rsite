@@ -30,5 +30,5 @@
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--<context:component-scan base-package="com.kza.*"/>-->
     <import resource="classpath*:spring-mongo.xml"/>
-    <import resource="classpath*:spring-redis.xml"/>
+    <import resource="classpath*:spring-cache.xml"/>
 </beans>

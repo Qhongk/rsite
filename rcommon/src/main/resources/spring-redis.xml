@@ -6,9 +6,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/redis http://www.springframework.org/schema/data/mongo/spring-redis.xsd
           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="maxWaitMillis" value="${redis.maxWait}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+    </bean>
+
     <bean id="jedisConnFactory"
           class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:usePool="true"/>
+          p:usePool="true" p:poolConfig-ref="jedisPoolConfig" p:hostName="${redis.host}" p:port="${redis.port}"/>
 
     <!-- redis template definition -->
     <bean id="redisTemplate"
