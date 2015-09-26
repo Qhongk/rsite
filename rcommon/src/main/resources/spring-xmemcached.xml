@@ -2,13 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--<bean id="memcachedService" class="com.vipshop.service.impl.MemcachedServiceImpl" destroy-method="shutdown">
-        <property name="memcachedClient" ref="memcachedClient"></property>
-        &lt;!&ndash; <property name="defaultCacheTime" value="${cache.default.cachetime}"></property>
-        <property name="highUpdatePeriodCacheTime" value="${cache.highupdate.cachetime}"></property>
-        <property name="highUpdatePeriodStartHour" value="${cache.highupdate.period.starthour}"></property>
-        <property name="highUpdatePeriodEndHour" value="${cache.highupdate.period.endhour}"></property> &ndash;&gt;
-    </bean>-->
 
     <!-- <bean name="memcachedClient"
         class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean"
