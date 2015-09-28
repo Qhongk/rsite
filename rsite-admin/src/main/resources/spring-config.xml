@@ -20,8 +20,7 @@
     </context:component-scan>
 
     <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <!--<property name="location" value="file:${com.kza.site.config}" />-->
-        <property name="location" value="classpath:globals.properties"/>
+        <property name="location" value="file:${com.kza.site.admin.config}" />
     </bean>
 
     <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

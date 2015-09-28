@@ -24,7 +24,7 @@
 
     <bean id="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
         <!-- XMemcachedClientBuilder have two arguments.First is server list,and second is weights array. -->
-        <constructor-arg value="${cache.url}"/>
+        <constructor-arg value="${memcached.url}"/>
         <property name="connectionPoolSize" value="5"></property>
         <property name="sessionLocator" ref="KetamaMemcachedSessionLocator"></property>
     </bean>

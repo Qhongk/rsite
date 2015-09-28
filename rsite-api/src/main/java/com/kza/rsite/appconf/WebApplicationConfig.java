@@ -15,6 +15,6 @@ import org.springframework.stereotype.Controller;
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @Import(value = {CacheConfig.class, MongoConfig.class})
-@PropertySource(value = "classpath:globals.properties", name = "properties")
+@PropertySource(value = "file:${com.kza.site.api.config}", name = "properties")
 public class WebApplicationConfig {
 }
