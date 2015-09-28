@@ -1,4 +1,4 @@
-package com.kzaza;
+package com.kza;
 
 /**
  * Hello world!
