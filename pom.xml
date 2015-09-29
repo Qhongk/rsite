@@ -53,6 +53,7 @@
         <module>kza-async-service</module>
         <module>kza-netty</module>
         <module>rsite-admin</module>
+        <module>kza-zk</module>
     </modules>
 
     <build>
