@@ -22,13 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Title: HttpClientUtils.java
- * @Package com.vip.tracker.util
- * @Description: httpclient tool
  *
- * @author rick01.kong
- * @date 2015年3月17日 下午3:43:30
- * @version V1.0
  */
 public class HttpClientUtils {
 
