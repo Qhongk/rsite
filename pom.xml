@@ -54,6 +54,7 @@
         <module>kza-netty</module>
         <module>rsite-admin</module>
         <module>kza-zk</module>
+        <module>hbase-api</module>
     </modules>
 
     <build>
