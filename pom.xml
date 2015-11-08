@@ -55,6 +55,7 @@
         <module>rsite-admin</module>
         <module>kza-zk</module>
         <module>hbase-api</module>
+        <module>kza-container</module>
     </modules>
 
     <build>
