@@ -1,5 +1,7 @@
 package com.kza.common.filter.gzip;
 
+import com.google.common.collect.Iterators;
+
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -7,11 +9,21 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLDecoder;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UnZipRequestWrapper extends HttpServletRequestWrapper {
 
+    private static final String PARAM_SEPARATOR = "&";
+    private static final String KEY_SEPARATOR = "=";
+    private static final String ENC = "UTF-8";
+
     private UnZipServletInputStream compressServletInputStream;
     private byte[] data;
+    private Map<String, String> parameter = new HashMap<>();
+    private Enumeration<String> paramNames;
 
     public UnZipRequestWrapper(HttpServletRequest request) throws IOException {
         super(request);
@@ -20,6 +32,16 @@ public class UnZipRequestWrapper extends HttpServletRequestWrapper {
 
         data = toBytes(inputStream);
         compressServletInputStream = new UnZipServletInputStream(data, length);
+        if (data != null && data.length > 0) {
+            String[] params = new String(compressServletInputStream.getData()).split(PARAM_SEPARATOR);
+            for (String p : params) {
+                String[] ps = p.split(KEY_SEPARATOR);
+                if (null != ps && ps.length == 2) {
+                    parameter.put(ps[0], URLDecoder.decode(ps[1], ENC));
+                }
+            }
+        }
+        paramNames = Iterators.asEnumeration(parameter.keySet().iterator());
     }
 
     /*
@@ -64,4 +86,17 @@ public class UnZipRequestWrapper extends HttpServletRequestWrapper {
         return bos.toByteArray();
     }
 
+    @Override
+    public String getParameter(String name) {
+        String s = super.getParameter(name);
+        if (null != s) {
+            return s;
+        }
+        return parameter.get(name);
+    }
+
+    @Override
+    public Enumeration<String> getParameterNames() {
+        return paramNames;
+    }
 }
