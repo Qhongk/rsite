@@ -1,6 +1,7 @@
 package com.kza.common.filter.gzip;
 
 import com.google.common.collect.Iterators;
+import org.apache.commons.io.IOUtils;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +29,13 @@ public class UnZipRequestWrapper extends HttpServletRequestWrapper {
     public UnZipRequestWrapper(HttpServletRequest request) throws IOException {
         super(request);
         int length = request.getContentLength();
-        final ServletInputStream inputStream = request.getInputStream();
-
-        data = toBytes(inputStream);
+        ServletInputStream inputStream = null;
+        try {
+            inputStream = request.getInputStream();
+            data = toBytes(inputStream);
+        } finally {
+            IOUtils.closeQuietly(inputStream);
+        }
         compressServletInputStream = new UnZipServletInputStream(data, length);
         if (data != null && data.length > 0) {
             String[] params = new String(compressServletInputStream.getData()).split(PARAM_SEPARATOR);

@@ -1,5 +1,7 @@
 package com.kza.common.filter.gzip;
 
+import org.apache.commons.io.IOUtils;
+
 import javax.servlet.ServletInputStream;
 import java.io.*;
 import java.util.zip.GZIPInputStream;
@@ -15,11 +17,17 @@ public class UnZipServletInputStream extends ServletInputStream {
     private byte[] data;
 
     public UnZipServletInputStream(byte[] source, int length) throws IOException {
-        InputStream is = new ByteArrayInputStream(source);
-        GZIPInputStream gis = new GZIPInputStream(is);
-
-        data = toBytes(gis);
-        input = new ByteArrayInputStream(data);
+        InputStream is = null;
+        GZIPInputStream gis = null;
+        try {
+            is = new ByteArrayInputStream(source);
+            gis = new GZIPInputStream(is);
+            data = toBytes(gis);
+            input = new ByteArrayInputStream(data);
+        } finally {
+            IOUtils.closeQuietly(gis);
+            IOUtils.closeQuietly(is);
+        }
     }
 
     /*
